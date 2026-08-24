@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трохи Зачекайте...</title>
+    
+    <!-- Підключення reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 { color: #4CAF50; }
+        .captcha-container {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:disabled {
+            background-color: #555555;
+            color: #888888;
+            cursor: not-allowed;
+        }
+        .btn:not(:disabled):hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Триває перевірка безпеки...</h1>
+    <p>ви будете на цбому сацті поки сайт перевіряє чи ви бот...</p>
+
+    <!-- Блок капчі. Замініть ВАШ_КЛЮЧ_САЙТУ на ваш ключ від Google reCAPTCHA -->
+    <div class="captcha-container">
+        <div class="g-recaptcha" data-sitekey="ВАШ_КЛЮЧ_САЙТУ" data-callback="enableBtn"></div>
+    </div>
+
+    <!-- Кнопка перенаправлення -->
+    <button class="btn" id="redirectBtn" disabled onclick="goToSite()">Перейти на сайт</button>
+
+    <script>
+        // Вмикає кнопку після проходження капчі
+        function enableBtn() {
+            document.getElementById("redirectBtn").disabled = false;
+        }
+
+        // Функція переходу на ваш сайт (змініть посилання на своє)
+        function goToSite() {
+            window.location.href = "https://angedxbaam.github.io"; 
+        }
+    </script>
+</body>
+</html>
